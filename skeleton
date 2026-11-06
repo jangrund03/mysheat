@@ -1,0 +1,14 @@
+push_swap/
+├── Makefile              (libft lines are commented out; copy your libft in, then uncomment them)
+├── README.md             (the required sections, all TODO)
+├── includes/push_swap.h  (t_op, t_node, t_ctx, all prototypes)
+└── src/
+    ├── main.c            DONE: no-args exit, error path, strategy dispatch
+    ├── parse.c           flags DONE; parse_int, duplicate check and list building are TODO
+    ├── stack.c           new / add_back / clear DONE
+    ├── stack_moves.c     TODO: swap, push, rotate, rrotate
+    ├── normalize.c       TODO: replace values with ranks
+    ├── ops.c             do_op() DONE: applies, counts, prints
+havu├── disorder.c        TODO
+    ├── bench.c           TODO (the expected output format is in the comment)
+havu└── strat_{simple,medium,complex,adaptive}.c   TODO, each with a hint comment
