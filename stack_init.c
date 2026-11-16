@@ -41,15 +41,15 @@ void	stack_init(t_stack_node **a, char **av, bool flag_argc_2)
 	while (av[i])
 	{
 		if (error_syntax(argv[i]))
-		// 	error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_argc_2);
 		numb = ft_atol(av[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-		// 	error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_argc_2);
 		if (error_repetition(*a, (int)nbr))
-		// 	error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_argc_2);
 		append_node(a, (int)numb);
 		i++;
 	}
-	// if (flag_argc_2)
-		// free_matrix(argv);
+	if (flag_argc_2)
+		free_matrix(argv);
 }

@@ -6,6 +6,16 @@ int		error_syntax(char *str_nbr);
 int		error_repetition(t_stack_node *a, int nbr);
 void	free_stack(t_stack_node **stack);
 void	free_matrix(char **argv);
+void	error_free(t_stack_node **a, char **argv, bool flag_argc_2);
+
+void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
+{
+	free_stack(a);
+	if (flag_argc_2)
+		free_matrix(argv);
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 void	free_matrix(char **argv)
 {
