@@ -2,7 +2,39 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	error_syntax(char *str_nbr);
+int		error_syntax(char *str_nbr);
+int		error_repetition(t_stack_node *a, int nbr);
+void	free_stack(t_stack_node **stack);
+void	free_matrix(char **argv);
+
+void	free_matrix(char **argv)
+{
+	int	i;
+
+	if (!argv)
+		return ;
+	i = -1;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv - 1);
+}
+
+void	free_stack(t_stack_node **stack)
+{
+	t_stack_node	*tmp;
+	t_stack_node	*curr;
+
+	if (!stack)
+		return ;
+	curr = *stack;
+	while (curr)
+	{
+		tmp = curr -> next;
+		free(curr);
+		curr = tmp;
+	}
+	*stack = NULL;
+}
 
 int	error_syntax(char *str_nbr)
 {
@@ -21,4 +53,26 @@ int	error_syntax(char *str_nbr)
 		i++;
 	}
 	return (0);
+}
+
+int	error_repetition(t_stack_node *a, int nbr)
+{
+	if (!a)
+		return (0);
+	while (a)
+	{
+		if (a->value == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+void	error_free(t_stack_node **a, char **argv, bool flag_argc_2)
+{
+	free_stack(a);
+	if (flag_argc_2)
+		free_matrix(argv);
+	write(2, "Error\n", 6);
+	exit(1);
 }
