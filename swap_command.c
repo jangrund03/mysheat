@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 static void swap(t_stack_node **head);
-void	sb(t_stack_node	**a, bool checker);
+void	sa(t_stack_node	**a, bool checker);
 void	sb(t_stack_node	**b, bool checker);
 void	ss(t_stack_node **a, t_stack_node **b, bool checker);
 

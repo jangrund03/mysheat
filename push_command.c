@@ -25,14 +25,14 @@ static void	push(t_stack_node **src, t_stack_node **dest)
 
 void	pa(t_stack_node **a, t_stack_node **b, bool checker)
 {
-	push(a, b);
+	push(b, a);
 	if (!checker)
 		write(1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a, bool checker)
 {
-	push(b, a);
+	push(a, b);
 	if (!checker)
 		write(1, "pb\n", 3);
 }
