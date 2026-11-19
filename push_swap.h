@@ -6,7 +6,7 @@
 /*   By: jagrund <jagrund@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 18:27:37 by jagrund           #+#    #+#             */
-/*   Updated: 2026/11/08 17:03:39 by jagrund          ###   ########.fr       */
+/*   Updated: 2026/11/19 20:33:15 by jagrund          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			handle_five(t_stack_node **a, t_stack_node **b);
 // static t_stack_node	*find_smallest(t_stack_node *stack);
 
 // push_swap_commands.c
-void	finish_rotation(t_stack_node **s, t_stack_node *top, char stack_name);
+void			finish_rotation(t_stack_node **s, t_stack_node *top, char stack_name);
 
 // push_swap_init.c
 void			set_current_position(t_stack_node *stack);
@@ -94,5 +94,8 @@ void			rrr(t_stack_node **a, t_stack_node **b, bool checker);
 void			pa(t_stack_node **a, t_stack_node **b, bool checker);
 void			pb(t_stack_node **b, t_stack_node **a, bool checker);
 // static void	push(t_stack_node **src, t_stack_node **dest);
+
+// disorder.c
+double			compute_disorder(t_stack_node *stack);
 
 #endif

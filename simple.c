@@ -6,14 +6,14 @@ int			find_min_val(t_stack_node **a);
 int			find_min_pos(t_stack_node **a, int min);
 static void	rotate_min_to_top(t_stack_node **a);
 
-int		find_min_pos(t_stack_node **a, int min)
+int	find_min_pos(t_stack_node **a, int min)
 {
 	int				pos;
 	t_stack_node	*tmp;
 
 	pos = 0;
 	tmp = *a;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->value == min)
 			return (pos);
@@ -30,13 +30,13 @@ int		find_min_val(t_stack_node **a)
 
 	tmp = *a;
 	val = tmp->value;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->value < val)
 			val = tmp->value;
 		tmp = tmp->next;
 	}
-	return(val);
+	return (val);
 }
 
 static int	bubble_pass(t_stack_node **a)
@@ -64,7 +64,7 @@ static int	bubble_pass(t_stack_node **a)
 		rra(a, false);
 		i++;
 	}
-	return(swapped);
+	return (swapped);
 }
 
 static void	rotate_min_to_top(t_stack_node **a)

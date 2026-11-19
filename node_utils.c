@@ -6,7 +6,7 @@ t_stack_node	*find_last_node(t_stack_node *head);
 int				stack_len(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
 
-int				is_sorted(t_stack_node *stack)
+int	is_sorted(t_stack_node *stack)
 {
 	t_stack_node	*tmp;
 

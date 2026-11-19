@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-static void swap(t_stack_node **head);
-void	sa(t_stack_node	**a, bool checker);
-void	sb(t_stack_node	**b, bool checker);
-void	ss(t_stack_node **a, t_stack_node **b, bool checker);
+static	void	swap(t_stack_node **head);
+void			sa(t_stack_node	**a, bool checker);
+void			sb(t_stack_node	**b, bool checker);
+void			ss(t_stack_node **a, t_stack_node **b, bool checker);
 
-static void swap(t_stack_node **head)
+static void	swap(t_stack_node **head)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -14,13 +14,13 @@ static void swap(t_stack_node **head)
 	if (!head || !*head || !(*head)->next)
 		return ;
 
-	first  = *head;
+	first = *head;
 	second = first->next;
-	third  = second->next;
+	third = second->next;
 	second->prev = NULL;
 	second->next = first;
-	first->prev  = second;
-	first->next  = third;
+	first->prev = second;
+	first->next = third;
 	if (third)
 		third->prev = first;
 	*head = second;
