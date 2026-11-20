@@ -38,7 +38,7 @@ void	run_test(int *values, int size)
 	printf("Stack B: (empty)\n\n");
 
 	// 3. Run the function
-	handle_five(&stack_a, &stack_b);
+	ft_sort_simple(&stack_a);
 
 	// 4. Print final state
 	print_stack(stack_a, "After ");
@@ -75,9 +75,9 @@ int	main(void)
 	run_test(test3, 5);
 
 	// Test Case 4: Smallest at Bottom
-	int	test4[] = {2, 3, 4, 5, 1};
+	int	test4[] = {2, 3, 4, 5, 1, 0 -50, 40, 55, 87};
 	printf("--- TEST 4: Smallest at Bottom ---\n");
-	run_test(test4, 5);
+	run_test(test4, 10);
 
 	return (0);
 }

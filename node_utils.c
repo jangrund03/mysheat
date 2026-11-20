@@ -5,6 +5,19 @@ void			append_node(t_stack_node **stack, int numb);
 t_stack_node	*find_last_node(t_stack_node *head);
 int				stack_len(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
+t_stack_node	*return_cheapest(t_stack_node *stack);
+
+t_stack_node	*return_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
 
 int	is_sorted(t_stack_node *stack)
 {

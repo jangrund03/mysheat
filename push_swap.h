@@ -31,23 +31,24 @@ typedef struct s_stack_node
 
 // simple.c
 void			ft_sort_simple(t_stack_node **stack);
-int				find_min_val(t_stack_node **a);
-int				find_min_pos(t_stack_node **a, int min);
 // static int	bubble_pass(t_stack_node **a);
-// static void	rotate_min_to_top(t_stack_node **a);
 
 // tiny_sort.c
 void			tiny_sort(t_stack_node **a);
 void			handle_five(t_stack_node **a, t_stack_node **b);
+t_stack_node	*find_smallest(t_stack_node *stack);
 // static t_stack_node	*find_highest(t_stack_node *stack);
-// static t_stack_node	*find_smallest(t_stack_node *stack);
 
 // push_swap_commands.c
 void			finish_rotation(t_stack_node **s, t_stack_node *top, char stack_name);
 
 // push_swap_init.c
-void			set_current_position(t_stack_node *stack);
-void			init_nodes(t_stack_node *a, t_stack_node *b);
+void	set_current_position(t_stack_node *stack);
+void	init_nodes(t_stack_node *a, t_stack_node *b);
+void	set_price(t_stack_node *a, t_stack_node *b);
+void	set_cheapest(t_stack_node *b);
+// static void	set_target_node(t_stack_node *a, t_stack_node *b);
+
 
 // error_utils.c
 int				error_syntax(char *str_nbr);
@@ -65,6 +66,7 @@ void			append_node(t_stack_node **stack, int numb);
 t_stack_node	*find_last_node(t_stack_node *head);
 int				stack_len(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
+t_stack_node	*return_cheapest(t_stack_node *stack);
 
 // split.c
 char			**ft_split(char *str, char sep);
