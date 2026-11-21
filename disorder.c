@@ -12,18 +12,17 @@
 
 #include "push_swap.h"
 
-double	compute_disorder(t_stack_node *stack);
-
 double	compute_disorder(t_stack_node *stack)
 {
 	t_stack_node	*i;
 	t_stack_node	*j;
-	int				mistake;
-	int				pair;
+	double			mistake;
+	double			pair;
 
 	pair = 0;
 	mistake = 0;
-
+	if (!(stack))
+		return (0);
 	i = stack;
 	while (i->next)
 	{
@@ -33,6 +32,11 @@ double	compute_disorder(t_stack_node *stack)
 			pair++;
 			if (i->value > j->value)
 				mistake++;
+			j = j->next;
 		}
+		i = i->next;
 	}
+	if (pair == 0)
+		return (0);
+	return (mistake / pair);
 }
