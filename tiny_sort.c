@@ -1,12 +1,12 @@
 #include "push_swap.h"
 #include <limits.h>
 
-static t_stack_node	*find_highest(t_stack_node *stack);
-static t_stack_node	*find_smallest(t_stack_node *stack);
+t_stack_node	*find_highest(t_stack_node *stack);
+t_stack_node	*find_smallest(t_stack_node *stack);
 void	tiny_sort(t_stack_node **a);
 void	handle_five(t_stack_node **a, t_stack_node **b);
 
-static t_stack_node	*find_highest(t_stack_node *stack)
+t_stack_node	*find_highest(t_stack_node *stack)
 {
 	t_stack_node	*highest;
 	int				highest_val;
@@ -26,7 +26,7 @@ static t_stack_node	*find_highest(t_stack_node *stack)
 	return (highest);
 }
 
-static t_stack_node	*find_smallest(t_stack_node *stack)
+t_stack_node	*find_smallest(t_stack_node *stack)
 {
 	t_stack_node	*smallest;
 	int				smallest_val;

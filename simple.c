@@ -1,43 +1,7 @@
 #include "push_swap.h"
 
 static int	bubble_pass(t_stack_node **a);
-void		ft_sort_simple(t_stack_node **stack);
-int			find_min_val(t_stack_node **a);
-int			find_min_pos(t_stack_node **a, int min);
-static void	rotate_min_to_top(t_stack_node **a);
-
-int	find_min_pos(t_stack_node **a, int min)
-{
-	int				pos;
-	t_stack_node	*tmp;
-
-	pos = 0;
-	tmp = *a;
-	while (tmp)
-	{
-		if (tmp->value == min)
-			return (pos);
-		pos++;
-		tmp = tmp->next;
-	}
-	return (pos);
-}
-
-int		find_min_val(t_stack_node **a)
-{
-	t_stack_node	*tmp;
-	int				val;
-
-	tmp = *a;
-	val = tmp->value;
-	while (tmp)
-	{
-		if (tmp->value < val)
-			val = tmp->value;
-		tmp = tmp->next;
-	}
-	return (val);
-}
+void		simple(t_stack_node **stack);
 
 static int	bubble_pass(t_stack_node **a)
 {
@@ -67,30 +31,10 @@ static int	bubble_pass(t_stack_node **a)
 	return (swapped);
 }
 
-static void	rotate_min_to_top(t_stack_node **a)
+void	simple(t_stack_node **stack)
 {
-	int	min_val;
-	int	min_pos;
-	int	size;
-
-	min_val = find_min_val(a);
-	min_pos = find_min_pos(a, min_val);
-	size = stack_len(*a);
-	if (min_pos <= size / 2)
-	{
-		while (min_pos-- > 0)
-			ra(a, false);
-	}
-	else
-	{
-		while (size-- > min_pos)
-			rra(a, false);
-	}
-}
-
-void	ft_sort_simple(t_stack_node **stack)
-{
-	int	swapped;
+	int				swapped;
+	t_stack_node	*smallest;
 
 	swapped = 1;
 	if (stack_len(*stack) < 2)
@@ -99,5 +43,7 @@ void	ft_sort_simple(t_stack_node **stack)
 		return ;
 	while (swapped)
 		swapped = bubble_pass(stack);
-	rotate_min_to_top(stack);
+	init_nodes(*stack, NULL);
+	smallest = find_smallest(*stack);
+	finish_rotation(stack, smallest, 'a');
 }

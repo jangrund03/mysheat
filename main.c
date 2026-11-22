@@ -1,83 +1,78 @@
 #include "push_swap.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-// Helper function to print the stack
-void	print_stack(t_stack_node *stack, char *name)
+/*
+** Optional algorithm keyword as first argument:
+**   simple  -> simple()     (bubble sort)
+**   medium  -> medium()     (chunk sort)
+**   tiny    -> tiny_sort()  (ONLY correct for <= 3 elements)
+**   (none)  -> push_swap()  (complex / turk-style)
+**
+** Examples:
+**   ./push_swap 3 1 2
+**   ./push_swap "5 4 3 2 1"
+**   ./push_swap medium 4 67 3 87 23 1 99
+**   ./push_swap simple 1 2 3 4 5
+**   ./push_swap tiny 3 1 2
+**
+** Operations go to stdout; OK/KO to stderr.
+*/
+
+int	main(int argc, char **argv)
 {
-	printf("%s: ", name);
-	if (!stack)
+	t_stack_node	*a = NULL;
+	t_stack_node	*b = NULL;
+	int				algo = 0;      /* 0 = complex, 1 = simple, 2 = medium, 3 = tiny */
+	int				arg_start = 1;
+	int				remaining;
+	char			**split;
+
+	if (argc < 2)
+		return (0);
+
+	if (!strcmp(argv[1], "simple"))
+		{ algo = 1; arg_start = 2; }
+	else if (!strcmp(argv[1], "medium"))
+		{ algo = 2; arg_start = 2; }
+	else if (!strcmp(argv[1], "tiny"))
+		{ algo = 3; arg_start = 2; }
+
+	remaining = argc - arg_start;
+	if (remaining <= 0)
+		return (0);
+
+	/* One arg left -> it's a quoted list, split it.
+	** Otherwise the remaining argv entries are the numbers.
+	** ft_split returns a vector whose [0] is an empty header,
+	** so we skip it (split + 1) and free_matrix() will free
+	** the base with free(argv - 1). */
+	if (remaining == 1)
 	{
-		printf("(empty)\n");
-		return ;
+		split = ft_split(argv[arg_start], ' ');
+		stack_init(&a, split + 1, true);
 	}
-	while (stack)
-	{
-		printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	printf("\n");
-}
-
-// Helper function to run a single test case
-void	run_test(int *values, int size)
-{
-	t_stack_node	*stack_a = NULL;
-	t_stack_node	*stack_b = NULL;
-	int				i = 0;
-
-	// 1. Initialize stack A
-	while (i < size)
-	{
-		append_node(&stack_a, values[i]);
-		i++;
-	}
-
-	// 2. Print initial state
-	print_stack(stack_a, "Before");
-	printf("Stack B: (empty)\n\n");
-
-	// 3. Run the function
-	handle_five(&stack_a, &stack_b);
-
-	// 4. Print final state
-	print_stack(stack_a, "After ");
-	print_stack(stack_b, "Stack B");
-
-	// 5. Verify
-	if (is_sorted(stack_a) && stack_b == NULL)
-		printf("✅ SUCCESS: Stack is perfectly sorted and B is empty!\n");
 	else
-		printf("❌ FAILURE: Stack is not sorted or B is not empty.\n");
+		stack_init(&a, argv + arg_start, false);
 
-	printf("--------------------------------------------------\n\n");
+	if (stack_len(a) >= 2)
+	{
+		if (algo == 1)
+			simple(&a);
+		else if (algo == 2)
+			medium(&a, &b);
+		else if (algo == 3)
+			tiny_sort(&a);
+		else
+			push_swap(&a, &b);
+	}
 
-	// 6. Free memory
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-}
+	if (is_sorted(a) && !b)
+		fprintf(stderr, "OK\n");
+	else
+		fprintf(stderr, "KO\n");
 
-int	main(void)
-{
-	// Test Case 1: Random Order
-	int	test1[] = {3, 5, 1, 4, 2};
-	printf("--- TEST 1: Random Order ---\n");
-	run_test(test1, 5);
-
-	// Test Case 2: Already Sorted
-	int	test2[] = {1, 2, 3, 4, 5};
-	printf("--- TEST 2: Already Sorted ---\n");
-	run_test(test2, 5);
-
-	// Test Case 3: Reverse Sorted
-	int	test3[] = {5, 4, 3, 2, 1};
-	printf("--- TEST 3: Reverse Sorted ---\n");
-	run_test(test3, 5);
-
-	// Test Case 4: Smallest at Bottom
-	int	test4[] = {2, 3, 4, 5, 1};
-	printf("--- TEST 4: Smallest at Bottom ---\n");
-	run_test(test4, 5);
-
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

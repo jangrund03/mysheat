@@ -5,6 +5,20 @@ void			append_node(t_stack_node **stack, int numb);
 t_stack_node	*find_last_node(t_stack_node *head);
 int				stack_len(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
+t_stack_node	*return_cheapest(t_stack_node *stack);
+
+t_stack_node	*return_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
 
 int	is_sorted(t_stack_node *stack)
 {
@@ -56,8 +70,14 @@ void	append_node(t_stack_node **stack, int numb)
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
 		return ;
-	node -> value = numb;
 	node -> next = NULL;
+	node -> value = numb;
+	node->cheapest     = false;
+	node->above_median = false;
+	node->target_node = NULL;
+	node->push_price = 0;
+	node->pre_index = 0;
+	node->current_position = 0;
 	if (!*stack)
 	{
 		*stack = node;
