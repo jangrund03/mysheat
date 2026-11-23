@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	push_swap(t_stack_node **a, t_stack_node **b);
+void	complex(t_stack_node **a, t_stack_node **b);
 static void	move_nodes(t_stack_node **a, t_stack_node **b);
 static void	rotate_both(t_stack_node **a, t_stack_node **b,
 						t_stack_node *cheapest_node);
@@ -40,7 +40,7 @@ static void	move_nodes(t_stack_node **a, t_stack_node **b)
 	pa(a, b, 0);
 }
 
-void	push_swap(t_stack_node **a, t_stack_node **b)
+void	complex(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*smallest;
 	int				len_a;

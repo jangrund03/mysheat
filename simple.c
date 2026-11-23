@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 static int	bubble_pass(t_stack_node **a);
-void		simple(t_stack_node **stack);
+void	simple(t_stack_node **stack, t_stack_node **empty);
 
 static int	bubble_pass(t_stack_node **a)
 {
@@ -31,7 +31,7 @@ static int	bubble_pass(t_stack_node **a)
 	return (swapped);
 }
 
-void	simple(t_stack_node **stack)
+void	simple(t_stack_node **stack, t_stack_node **empty)
 {
 	int				swapped;
 	t_stack_node	*smallest;

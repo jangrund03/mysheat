@@ -30,8 +30,11 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }				t_stack_node;
 
+// adaptive.c
+void	adaptive(t_stack_node **a, t_stack_node **b);
+
 // complex.c
-void	push_swap(t_stack_node **a, t_stack_node **b);
+void	complex(t_stack_node **a, t_stack_node **b);
 // static void	move_nodes(t_stack_node **a, t_stack_node **b);
 // static void	rotate_both(t_stack_node **a, t_stack_node **b,
 // 						t_stack_node *cheapest_node);
@@ -46,7 +49,7 @@ void		medium(t_stack_node **a, t_stack_node **b);
 // static void	push_back(t_stack_node **a, t_stack_node **b);
 
 // simple.c
-void			simple(t_stack_node **stack);
+void	simple(t_stack_node **stack, t_stack_node **empty);
 // static int	bubble_pass(t_stack_node **a);
 
 // tiny_sort.c
@@ -115,5 +118,8 @@ void			pb(t_stack_node **b, t_stack_node **a, bool checker);
 
 // disorder.c
 double			compute_disorder(t_stack_node *stack);
+
+// ft_strcmp.c
+int				ft_strcmp(char *s1, char *s2);
 
 #endif
