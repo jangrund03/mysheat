@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stddef.h>
 
-int	count_words(char *str, char sep);
+int			count_words(char *str, char sep);
 static char	*get_next_word(char *str, char sep);
-char	**ft_split(char *str, char sep);
+char		**ft_split(char *str, char sep);
 
 int	count_words(char *str, char sep)
 {
@@ -11,12 +23,14 @@ int	count_words(char *str, char sep)
 	int	inside;
 	int	i;
 
-	inside = i = count = 0;
-	while(str[i])
+	inside = 0;
+	i = 0;
+	count = 0;
+	while (str[i])
 	{
-		while(str[i] == sep && str[i])
+		while (str[i] == sep && str[i])
 			i++;
-		while(str[i] != sep && str[i])
+		while (str[i] != sep && str[i])
 		{
 			if (!inside)
 			{
@@ -37,13 +51,14 @@ static char	*get_next_word(char *str, char sep)
 	int			word_len;
 	int			k;
 
-	word_len = k = 0;
-	while(str[i] == sep)
+	word_len = 0;
+	k = 0;
+	while (str[i] == sep)
 		i++;
-	while(str[i + word_len] != sep && str[i + word_len])
+	while (str[i + word_len] != sep && str[i + word_len])
 		word_len++;
 	next_word = malloc((size_t)word_len * sizeof(char) + 1);
-	while(str[i] != sep && str[i])
+	while (str[i] != sep && str[i])
 		next_word[k++] = str[i++];
 	next_word[k] = '\0';
 	return (next_word);
@@ -62,7 +77,7 @@ char	**ft_split(char *str, char sep)
 	vector_strings = malloc((size_t)(words_number + 2) * sizeof(char *));
 	if (!vector_strings)
 		return (NULL);
-	while(words_number-- >= 0)
+	while (words_number-- >= 0)
 	{
 		if (0 == i)
 		{

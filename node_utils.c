@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <limits.h>
 
@@ -70,13 +82,11 @@ void	append_node(t_stack_node **stack, int numb)
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
 		return ;
-	node -> next = NULL;
-	node -> value = numb;
-	node->cheapest     = false;
+	node->next = NULL;
+	node->value = numb;
+	node->cheapest = false;
 	node->above_median = false;
 	node->target_node = NULL;
-	node->push_price = 0;
-	node->pre_index = 0;
 	node->current_position = 0;
 	if (!*stack)
 	{

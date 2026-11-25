@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	pre_index(t_stack_node **stack);
@@ -23,7 +35,7 @@ static void	push_chunks(t_stack_node **a, t_stack_node **b)
 		{
 			pb(b, a, 0);
 			pushed++;
-			if((*b)->pre_index > limit - chunk_size / 2)
+			if ((*b)->pre_index > limit - chunk_size / 2)
 				rb(b, 0);
 		}
 		else
@@ -36,7 +48,8 @@ static void	push_chunks(t_stack_node **a, t_stack_node **b)
 static void	push_back(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*max;
-	while(stack_len(*b) > 0)
+
+	while (stack_len(*b) > 0)
 	{
 		max = find_highest(*b);
 		finish_rotation(b, max, 'b');
@@ -57,7 +70,6 @@ static void	pre_index(t_stack_node **stack)
 	t_stack_node	*outer;
 	int				index;
 
-
 	if (!stack || !(*stack))
 		return ;
 	outer = *stack;
@@ -76,10 +88,10 @@ static void	pre_index(t_stack_node **stack)
 	}
 }
 
-void		medium(t_stack_node **a, t_stack_node **b)
+void	medium(t_stack_node **a, t_stack_node **b)
 {
 	if (!*a)
-		return;
+		return ;
 	if (stack_len(*a) < 2)
 		return ;
 	if (is_sorted(*a))

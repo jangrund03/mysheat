@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <limits.h>
 
 t_stack_node	*find_highest(t_stack_node *stack);
 t_stack_node	*find_smallest(t_stack_node *stack);
-void	tiny_sort(t_stack_node **a);
-void	handle_five(t_stack_node **a, t_stack_node **b);
+void			tiny_sort(t_stack_node **a);
+void			handle_five(t_stack_node **a, t_stack_node **b);
 
 t_stack_node	*find_highest(t_stack_node *stack)
 {
@@ -12,9 +24,9 @@ t_stack_node	*find_highest(t_stack_node *stack)
 	int				highest_val;
 
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	highest_val = INT_MIN;
-	while(stack)
+	while (stack)
 	{
 		if (stack->value > highest_val)
 		{
@@ -32,10 +44,10 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 	int				smallest_val;
 
 	if (!stack)
-		return(NULL);
+		return (NULL);
 	smallest = stack;
 	smallest_val = INT_MAX;
-	while(stack)
+	while (stack)
 	{
 		if (stack->value < smallest_val)
 		{
@@ -46,7 +58,6 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 	}
 	return (smallest);
 }
-
 
 // handle 3
 void	tiny_sort(t_stack_node **a)

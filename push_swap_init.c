@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdbool.h>
-# include <limits.h>
+#include <limits.h>
 
-void	set_current_position(t_stack_node *stack);
-void	init_nodes(t_stack_node *a, t_stack_node *b);
+void		set_current_position(t_stack_node *stack);
+void		init_nodes(t_stack_node *a, t_stack_node *b);
 static void	set_target_node(t_stack_node *a, t_stack_node *b);
-void	set_price(t_stack_node *a, t_stack_node *b);
-void	set_cheapest(t_stack_node *b);
+void		set_price(t_stack_node *a, t_stack_node *b);
+void		set_cheapest(t_stack_node *b);
 
 void	set_cheapest(t_stack_node *b)
 {
@@ -53,7 +65,7 @@ static void	set_target_node(t_stack_node *a, t_stack_node *b)
 	t_stack_node	*current_a;
 	t_stack_node	*target;
 	long			best_match;
-	
+
 	while (b)
 	{
 		best_match = LONG_MAX;
@@ -80,7 +92,7 @@ void	set_current_position(t_stack_node *stack)
 	int	i;
 	int	centerline;
 
-	if(!stack)
+	if (!stack)
 		return ;
 	i = 0;
 	centerline = stack_len(stack) / 2;
@@ -104,5 +116,3 @@ void	init_nodes(t_stack_node *a, t_stack_node *b)
 	set_price(a, b);
 	set_cheapest(b);
 }
-
-

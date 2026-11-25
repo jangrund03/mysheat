@@ -32,7 +32,7 @@ double	compute_disorder(t_stack_node *stack)
 			pair++;
 			if (i->value > j->value)
 				mistake++;
-			j = j->	next;
+			j = j->next;
 		}
 		i = i->next;
 	}

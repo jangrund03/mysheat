@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	complex(t_stack_node **a, t_stack_node **b);
+void		complex(t_stack_node **a, t_stack_node **b);
 static void	move_nodes(t_stack_node **a, t_stack_node **b);
 static void	rotate_both(t_stack_node **a, t_stack_node **b,
-						t_stack_node *cheapest_node);
+				t_stack_node *cheapest_node);
 static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
-						t_stack_node *cheapest_node);
+				t_stack_node *cheapest_node);
 
 static void	rotate_both(t_stack_node **a, t_stack_node **b,
 						t_stack_node *cheapest_node)
@@ -15,6 +27,7 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b,
 	set_current_position(*a);
 	set_current_position(*b);
 }
+
 static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
 						t_stack_node *cheapest_node)
 {
@@ -50,11 +63,8 @@ void	complex(t_stack_node **a, t_stack_node **b)
 		handle_five(a, b);
 	else
 	{
-		while (len_a > 3)
-		{
+		while (len_a-- > 3)
 			pb(b, a, 0);
-			len_a--;
-		}
 	}
 	tiny_sort(a);
 	while (stack_len(*b) > 0)

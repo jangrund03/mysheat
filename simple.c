@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	bubble_pass(t_stack_node **a);
-void	simple(t_stack_node **stack, t_stack_node **empty);
+void		simple(t_stack_node **stack, t_stack_node **empty);
 
 static int	bubble_pass(t_stack_node **a)
 {
@@ -36,6 +48,7 @@ void	simple(t_stack_node **stack, t_stack_node **empty)
 	int				swapped;
 	t_stack_node	*smallest;
 
+	(void)empty;
 	swapped = 1;
 	if (stack_len(*stack) < 2)
 		return ;

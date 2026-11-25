@@ -31,10 +31,10 @@ typedef struct s_stack_node
 }				t_stack_node;
 
 // adaptive.c
-void	adaptive(t_stack_node **a, t_stack_node **b);
+void			adaptive(t_stack_node **a, t_stack_node **b);
 
 // complex.c
-void	complex(t_stack_node **a, t_stack_node **b);
+void			complex(t_stack_node **a, t_stack_node **b);
 // static void	move_nodes(t_stack_node **a, t_stack_node **b);
 // static void	rotate_both(t_stack_node **a, t_stack_node **b,
 // 						t_stack_node *cheapest_node);
@@ -42,14 +42,14 @@ void	complex(t_stack_node **a, t_stack_node **b);
 // 						t_stack_node *cheapest_node);
 
 // medium.c
-void		medium(t_stack_node **a, t_stack_node **b);
+void			medium(t_stack_node **a, t_stack_node **b);
 // static void	pre_index(t_stack_node **stack);
 // static int	chunk_siz(int size);
 // static void	push_chunks(t_stack_node **a, t_stack_node **b);
 // static void	push_back(t_stack_node **a, t_stack_node **b);
 
 // simple.c
-void	simple(t_stack_node **stack, t_stack_node **empty);
+void			simple(t_stack_node **stack, t_stack_node **empty);
 // static int	bubble_pass(t_stack_node **a);
 
 // tiny_sort.c
@@ -59,15 +59,14 @@ t_stack_node	*find_smallest(t_stack_node *stack);
 t_stack_node	*find_highest(t_stack_node *stack);
 
 // push_swap_commands.c
-void			finish_rotation(t_stack_node **s, t_stack_node *top, char stack_name);
+void			finish_rotation(t_stack_node **s, t_stack_node *top, char here);
 
 // push_swap_init.c
-void	init_nodes(t_stack_node *a, t_stack_node *b);
-void	set_current_position(t_stack_node *stack);
-void	set_price(t_stack_node *a, t_stack_node *b);
-void	set_cheapest(t_stack_node *b);
+void			init_nodes(t_stack_node *a, t_stack_node *b);
+void			set_current_position(t_stack_node *stack);
+void			set_price(t_stack_node *a, t_stack_node *b);
+void			set_cheapest(t_stack_node *b);
 // static void	set_target_node(t_stack_node *a, t_stack_node *b);
-
 
 // error_utils.c
 int				error_syntax(char *str_nbr);
@@ -91,7 +90,6 @@ t_stack_node	*return_cheapest(t_stack_node *stack);
 char			**ft_split(char *str, char sep);
 int				count_words(char *str, char sep);
 // static char	*get_next_word(char *str, char sep);
-
 
 // rotate_command.c
 void			ra(t_stack_node **a, bool checker);

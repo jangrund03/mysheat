@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havu <havu@student.42prague.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/25 15:51:07 by havu              #+#    #+#             */
+/*   Updated: 2026/11/25 15:51:38 by havu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static	void	swap(t_stack_node **head);
+static void		swap(t_stack_node **head);
 void			sa(t_stack_node	**a, bool checker);
 void			sb(t_stack_node	**b, bool checker);
 void			ss(t_stack_node **a, t_stack_node **b, bool checker);
@@ -13,7 +25,6 @@ static void	swap(t_stack_node **head)
 
 	if (!head || !*head || !(*head)->next)
 		return ;
-
 	first = *head;
 	second = first->next;
 	third = second->next;
